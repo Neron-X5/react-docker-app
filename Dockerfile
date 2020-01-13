@@ -22,14 +22,8 @@ COPY . .
 RUN yarn build
 
 # Stage 2
-# Copy over the modules from above onto a `slim` image from https://hub.docker.com/r/mhart/alpine-node
-FROM mhart/alpine-node:slim-12.14.1
-
-# Install global npm or yarn
-RUN apk --update --no-cache add yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
-
-# Install serve static server to run the app
-RUN yarn global add serve
+# Copy over the modules from above onto a `slim` image from https://hub.docker.com/_/nginx?tab=description
+FROM nginx:mainline-alpine
 
 # Use the project root as exectution context
 WORKDIR /app
@@ -37,9 +31,12 @@ WORKDIR /app
 # Copy the build folder from previous stage
 COPY --from=builder /app/build .
 
+# Overwrite this default.conf file with our nginx.conf
+# to know details follow here: https://stackoverflow.com/questions/43555282/react-js-application-showing-404-not-found-in-nginx-server
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose ports (for orchestrators and dynamic reverse proxies)
 EXPOSE 3000
 
 # Start the app
-  # CMD ["npm", "start"]
-CMD ["serve", "-s", "-n", "-p", "3000", "."]
+CMD ["nginx", "-g", "daemon off;"]

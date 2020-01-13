@@ -6,7 +6,7 @@
 
 The Docker image follows 2-step build process to bundle the optimised production build.
 
-It utilises [serve](https://www.npmjs.com/package/serve) to run a static server.
+It utilises [nginx](https://nginx.org/) to serve the site.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -5,5 +5,7 @@
 !src
 !public
 
+!nginx.conf
+
 !package*.json
 !yarn.lock
