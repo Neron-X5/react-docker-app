@@ -1,8 +1,8 @@
 # React-Docker App
 
----
 
 > A basic demo [React](https://reactjs.org/) app using [Docker](https://www.docker.com/) container to serve the production version of the app.
+
 
 The Docker image follows 2-step build process to bundle the optimised production build.
 
