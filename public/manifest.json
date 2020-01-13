@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Docker App",
+  "name": "A basic demo React app using Docker container to serve the production version of the app",
   "icons": [
     {
       "src": "favicon.ico",

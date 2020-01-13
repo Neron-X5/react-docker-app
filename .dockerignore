@@ -1,0 +1,9 @@
+# Exclude everything:
+*
+
+# Now un-exclude source folder and package.json & lock files:
+!src
+!public
+
+!package*.json
+!yarn.lock
