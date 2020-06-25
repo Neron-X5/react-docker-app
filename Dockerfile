@@ -1,3 +1,9 @@
+ # clear && docker build -t react-app .
+
+# clear && docker run --rm -it -p 3000:3000 --name mechan react-app
+
+# clear && docker exec -ti mechan /bin/sh
+
 # Stage 1
 # Base image from https://hub.docker.com/_/node/?tab=description
 FROM node:12.14.1-alpine3.11 AS builder
